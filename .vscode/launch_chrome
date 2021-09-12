@@ -1,0 +1,45 @@
+{
+    "configurations": [
+        {
+            "type": "node",
+            "name": "Launch via npm",  // VSCode上に表示される名前。任意
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "debug"  // package.jsonに記載したスクリプト名
+            ],
+            "skipFiles": [
+              "${workspaceFolder}/node_modules/**/*.js",
+              "${workspaceFolder}/lib/**/*.js",
+              "<node_internals>/**/*.js",
+              "<node_internals>/*.js"
+            ],
+            "cwd": "${workspaceFolder}",
+            "port": 9229,  // デバッグクライアントのポートを指定する
+            "sourceMaps": true  // ソースマップを利用することを表す
+        },
+        {
+            "type": "chrome",
+            "name": "Launch Chrome",
+            "request": "launch",
+            "reAttach": true,
+            "profile": "default",  // 使用するプロファイル名を指定する
+            "keepProfileChanges": true,  // 既存のプロファイルをそのまま使う。falseにすると、profileで指定したプロファイルをコピーして使う
+            "url": "http://localhost:3000",  // アクセスするURL. 今回は、nodeアプリケーションがlocalhost:3000で上がる前提になっている
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [
+                {
+                    "url": "webpack:///app",
+                    "path": "${workspaceFolder}/app"
+                }
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "Full-stack",
+            "configurations": ["Launch via npm", "Launch Chrome"]
+        }
+    ]
+}

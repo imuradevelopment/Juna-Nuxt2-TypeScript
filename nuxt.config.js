@@ -19,6 +19,7 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
+        '~/plugins/api'
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -63,12 +64,22 @@ export default {
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {
+        extend(config, { isClient }) {
+            if (isClient) {
+                // config.devtool = 'source-map';
+                // config.devtool = 'inline-cheap-module-source-map';
+                config.devtool = 'eval-source-map';
+            }
+        },
     },
     env: {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000/',
     },
+    router: {
+        // middleware: ['auth']
+    },
     auth: {
-        // plugins: [{ src: '~/plugins/nuxt-auth.js', mode: 'client' }],
+        plugins: ['~plugins/axios.js',],
         redirect: {
             login: '/login',
             logout: '/login',
@@ -77,6 +88,7 @@ export default {
         },
         strategies: {
             local: {
+                scheme: 'refresh',
                 token: {
                     property: 'access',
                     global: true,
@@ -92,10 +104,15 @@ export default {
                         url: '/v1/auth/jwt/create/',
                         method: 'post',
                     },
+                    refresh: { url: '/v1/auth/jwt/refresh/', method: 'post' },
                     user: {
                         url: '/v1/users/me/',
                         method: 'get',
-                    },
+                    }
+                },
+                refreshToken: {
+                    property: 'refresh',
+                    data: 'refresh',
                 },
             },
         },

@@ -4,11 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "debug": "node --inspect-brk=9229 ./node_modules/nuxt/bin/nuxt",
+    "debug2": "node --inspect /node_modules/.bin/nuxt",
+    "dev:api": "aspida --watch",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
-    "lintfix:js": "eslint --fix --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lintfix:js": "eslint --fix --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "prepare": "husky install",
     "lint": "npm run lint:js && npm run lint:style"

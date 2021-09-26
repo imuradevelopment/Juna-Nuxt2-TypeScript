@@ -1,9 +1,9 @@
-const colors = require('tailwindcss/colors');
+const colors = require('tailwindcss/colors')
 
 module.exports = {
     purge: [],
     presets: [],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
         screens: {
             sm: '640px',
@@ -15,7 +15,6 @@ module.exports = {
         colors: {
             transparent: 'transparent',
             current: 'currentColor',
-
             black: colors.black,
             white: colors.white,
             gray: colors.coolGray,
@@ -26,6 +25,30 @@ module.exports = {
             indigo: colors.indigo,
             purple: colors.violet,
             pink: colors.pink,
+            primaryColor: 'var(--primaryColor)',
+            primaryLightColor: 'var(--primaryLightColor)',
+            primaryDarkColor: 'var(--primaryDarkColor)',
+            primaryTextColor: 'var(--primaryTextColor)',
+            primaryBGColor: 'var(--primaryBGColor)',
+            secondaryColor: 'var(--secondaryColor)',
+            secondaryLightColor: 'var(--secondaryLightColor)',
+            secondaryDarkColor: 'var(--secondaryDarkColor)',
+            secondaryTextColor: 'var(--secondaryTextColor)',
+            secondaryBGColor: 'var(--secondaryBGColor)',
+            primaryColorDark: 'var(--primaryColorDark)',
+            baseTextColor: 'var(--baseTextColor)',
+            subTextColor: 'var(--subTextColor)',
+            // primaryLightColorDark: 'var(--primaryLightColorDark)',
+            // primaryDarkColorDark: 'var(--primaryDarkColorDark)',
+            // primaryTextColorDark: 'var(--primaryTextColorDark)',
+            primaryBGColorDark: 'var(--primaryBGColorDark)',
+            // secondaryColorDark: 'var(--secondaryColorDark)',
+            // secondaryLightColorDark: 'var(--secondaryLightColorDark)',
+            // secondaryDarkColorDark: 'var(--secondaryDarkColorDark)',
+            // secondaryTextColorDark: 'var(--secondaryTextColorDark)',
+            secondaryBGColorDark: 'var(--secondaryBGColorDark)',
+            baseTextColorDark: 'var(--baseTextColorDark)',
+            subTextColorDark: 'var(--subTextColorDark)',
         },
         spacing: {
             px: '1px',
@@ -185,7 +208,9 @@ module.exports = {
             150: '1.5',
             200: '2',
         },
-        container: {},
+        container: {
+            center: true,
+        },
         content: {
             none: 'none',
         },
@@ -223,7 +248,10 @@ module.exports = {
             '2xl': '0 25px 25px rgba(0, 0, 0, 0.15)',
             none: '0 0 #0000',
         },
-        fill: { current: 'currentColor' },
+        fill: (theme) => theme('colors'),
+        // {
+        //   current: 'currentColor'
+        // },
         grayscale: {
             0: '0',
             DEFAULT: '100%',
@@ -1054,6 +1082,12 @@ module.exports = {
         width: ['responsive'],
         wordBreak: ['responsive'],
         zIndex: ['responsive', 'focus-within', 'focus'],
+        extend: {
+            opacity: ['disabled'],
+            cursor: ['disabled'],
+        },
     },
-    plugins: [],
-};
+    plugins: [
+        require('@tailwindcss/forms'),
+    ],
+}

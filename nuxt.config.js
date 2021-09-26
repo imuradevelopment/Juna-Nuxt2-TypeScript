@@ -4,6 +4,7 @@ export default {
         title: 'juna_nuxt',
         meta: [
             { charset: 'utf-8' },
+            { lang: 'ja' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
             { hid: 'description', name: 'description', content: '' },
             { name: 'format-detection', content: 'telephone=no' }
@@ -19,7 +20,8 @@ export default {
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
-        '~/plugins/api'
+        '~/plugins/api',
+        '~/plugins/vuetailwind.ts'
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
@@ -33,7 +35,13 @@ export default {
         '@nuxtjs/stylelint-module',
         // https://go.nuxtjs.dev/tailwindcss
         '@nuxtjs/tailwindcss',
+        '@nuxtjs/color-mode',
+        '@nuxtjs/composition-api/module',
     ],
+    generate: {
+        // choose to suit your project
+        interval: 2000,
+    },
 
     // Modules: https://go.nuxtjs.dev/config-modules
     modules: [
@@ -46,16 +54,21 @@ export default {
         '@nuxtjs/auth-next',
         '@nuxtjs/toast'
     ],
-
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
-        baseURL: 'http://127.0.0.1:8000/api',
+        proxy: true,
+        // baseURL: 'http://127.0.0.1:8000/api',
     },
-
+    proxy: {
+        '/api3/': {
+            target: 'http://127.0.0.1:8000',
+            pathRewrite: {'^/api3/': '/api/'}
+        },
+    },
     // PWA module configuration: https://go.nuxtjs.dev/pwa
     pwa: {
         manifest: {
-            lang: 'en'
+            lang: 'ja'
         }
     },
 
@@ -68,7 +81,7 @@ export default {
             if (isClient) {
                 // config.devtool = 'source-map';
                 // config.devtool = 'inline-cheap-module-source-map';
-                config.devtool = 'eval-source-map';
+                config.devtool = 'eval-source-map'
             }
         },
     },
@@ -95,24 +108,24 @@ export default {
                     type: 'JWT',
                     // maxAge: 300,
                 },
+                refreshToken: {
+                    property: 'refresh',
+                    data: 'refresh',
+                },
                 user: {
                     property: false,
                     autoFetch: true,
                 },
                 endpoints: {
                     login: {
-                        url: '/v1/auth/jwt/create/',
+                        url: '/api3/v1/auth/jwt/create/',
                         method: 'post',
                     },
-                    refresh: { url: '/v1/auth/jwt/refresh/', method: 'post' },
+                    refresh: { url: '/api3/v1/auth/jwt/refresh/', method: 'post' },
                     user: {
-                        url: '/v1/users/me/',
+                        url: '/api3/v1/users/me/',
                         method: 'get',
                     }
-                },
-                refreshToken: {
-                    property: 'refresh',
-                    data: 'refresh',
                 },
             },
         },
@@ -142,4 +155,7 @@ export default {
             },
         ],
     },
-};
+    colorMode:{
+        classSuffix: '',
+    },
+}

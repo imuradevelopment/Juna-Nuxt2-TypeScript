@@ -29,7 +29,8 @@
       "@nuxt/content",
       "@types/node",
       "@nuxtjs/auth-next",
-      "@nuxtjs/toast"
+      "@nuxtjs/toast",
+      "@nuxtjs/color-mode"
     ]
   },
   "exclude": [

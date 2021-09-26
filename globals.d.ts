@@ -1,6 +1,6 @@
-import '@nuxtjs/axios';
-import { NuxtApp } from '@nuxt/types/app';
+import '@nuxtjs/axios'
+import { NuxtApp } from '@nuxt/types/app'
 
 declare global {
-  const $nuxt: NuxtApp;
+  const $nuxt: NuxtApp
 }

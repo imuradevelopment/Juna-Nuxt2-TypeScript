@@ -1,14 +1,56 @@
+:root {
+  /* light */
+--primaryColor: rgba(52, 73, 85, 1.0);
+--primaryLightColor: rgba(95, 116, 129, 1.0);
+--primaryDarkColor: rgba(11, 34, 44, 1.0);
+--primaryTextColor: rgba(249, 250, 251, 1);
+--primaryBGColor: rgba(249, 250, 251, 1);
+--secondaryColor: rgba(249, 170, 51, 1.0);
+--secondaryLightColor: rgba(255, 220, 101, 1.0);
+--secondaryDarkColor: rgba(193, 123, 0, 1.0);
+--secondaryTextColor: rgba(0, 0, 0, 1.0);
+--secondaryBGColor: rgba(52, 73, 85, 1.0);
+--baseTextColor: rgba(0, 0, 0, 0.87);
+--subTextColor: rgba(0, 0, 0, 0.54);
+
+  /* dark */
+--primaryBGColorDark: rgba(19, 27, 32, 1);
+--secondaryBGColorDark: rgba(19, 18, 16, 1);
+--baseTextColorDark: rgba(255, 255, 255, 0.70);
+--subTextColorDark: rgba(255, 255, 255, 0.50);
+
+/*
+--primaryColorDark: rgba(52, 73, 85, 1.0);
+--primaryLightColorDark: rgba(95, 116, 129, 1.0);
+--primaryDarkColorDark: rgba(11, 34, 44, 1.0);
+--primaryTextColorDark: rgba(255, 255, 255, 1.0);
+--primaryBGColorDark: rgba(11, 34, 44, 1.0);
+--secondaryColorDark: rgba(249, 170, 51, 1.0);
+--secondaryLightColorDark: rgba(255, 220, 101, 1.0);
+--secondaryDarkColorDark: rgba(193, 123, 0, 1.0);
+--secondaryTextColorDark: rgba(11, 34, 44, 1.0); */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
     html {
-        --tw-text-opacity: 1;
-        --tw-bg-opacity: 1;
-
-        -webkit-tap-highlight-color: transparent;
+        /* -webkit-tap-highlight-color: transparent;
         background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
-        color: rgba(209, 213, 219, var(--tw-text-opacity));
+        color: rgba(209, 213, 219, var(--tw-text-opacity)); */
+    }
+    body {
+      background-color: #fafafa;
+      color: rgba(0,0,0,0.87);
+    }
+    .dark body {
+      /* background-color: #091a28;
+      color: #ebf4f1;
+       background-color: #111827; */
+
+      background-color: rgba(14, 19, 22, 1);
+      color: #D1D5DB;
     }
 }

@@ -10,10 +10,15 @@ module.exports = {
         'at-rule-no-unknown': [
             true,
             {
-                ignoreAtRules: ['extends', 'tailwind', 'layer'],
+                ignoreAtRules: ['extends', 'tailwind', 'layer', 'font-face'],
             },
         ],
         'block-no-empty': null,
-        'unit-allowed-list': ['em', 'rem', 's'],
+        'unit-allowed-list': ['em', 'rem', 's', 'vh', 'vw', 'fr', 'ms', '%'],
+        'font-family-no-missing-generic-family-keyword': [ true,
+            {
+                'ignoreFontFamilies': 'BlackArea',
+            },
+        ]
     }
 }

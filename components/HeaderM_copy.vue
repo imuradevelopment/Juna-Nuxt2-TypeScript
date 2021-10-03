@@ -1,5 +1,5 @@
 <template>
-    <section class="sticky bottom-0 z-50 bg-primaryColor dark:bg-primaryColor">
+    <section class="fixed z-10 bottom-0 inset-x-0 block bg-primaryColor dark:bg-primaryColor">
         <div class="flex justify-between h-14">
             <NuxtLink
               v-for="(headerInfo, index) in headerInfos"

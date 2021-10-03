@@ -16,6 +16,7 @@ export default {
 
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: [
+        '~assets/css/styles.css'
     ],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -89,10 +90,11 @@ export default {
         baseUrl: process.env.BASE_URL || 'http://localhost:3000/',
     },
     router: {
-        // middleware: ['auth']
+        middleware: ['auth']
     },
     auth: {
-        plugins: ['~plugins/axios.js',],
+        localStorage: false,
+        plugins: ['~plugins/auth.ts',],
         redirect: {
             login: '/login',
             logout: '/login',
@@ -154,6 +156,8 @@ export default {
                 },
             },
         ],
+        singleton: true,
+        closeOnSwipe: true,
     },
     colorMode:{
         classSuffix: '',

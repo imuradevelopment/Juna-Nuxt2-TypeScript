@@ -92,7 +92,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-    layout: 'ignore',
+    // layout: 'ignore',
     data() {
         return {
             login: {

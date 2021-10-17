@@ -1,14 +1,5 @@
 import { Auth } from '@nuxtjs/auth-next'
 
-// import { NuxtAxiosInstance } from '@nuxtjs/axios'
-// export default function ($auth:Auth) {
-//     $auth.onError(
-//         (error, name) => {
-//             console.error(error, name)
-//         }
-//     )
-// }
-
 export default function ({ $auth }: { $auth: Auth }) {
     $auth.onError((error, name) => {
         console.error(error)

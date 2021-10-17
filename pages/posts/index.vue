@@ -1,3 +1,7 @@
 <template>
-    <div>投稿</div>
+    <div>
+        <client-only>
+            <tip-tap-test />
+        </client-only>
+    </div>
 </template>

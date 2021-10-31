@@ -11,9 +11,10 @@ const classes: Record<Levels, string> = {
 
 export const CustomHeading = BaseHeading
     .configure({
-        levels: [1, 2, 3],
+        levels: [1, 2, 3]
     })
     .extend({
+        marks: '',
         renderHTML({ node, HTMLAttributes }) {
             const hasLevel = this.options.levels.includes(node.attrs.level)
             const level: Levels = hasLevel ? node.attrs.level : this.options.levels[0]

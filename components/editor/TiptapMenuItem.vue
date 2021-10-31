@@ -1,6 +1,6 @@
 <template>
   <button
-    class="w-7 h-7 md:w-16 md:h-14 text-white p-1"
+    class="w-9 h-9 md:w-auto md:h-14 text-white p-1 md:py-1 md:px-3"
     :class="{ 'bg-primaryDarkColor': isActive ? isActive(): null }"
     :title="title"
     @click="action"
@@ -11,7 +11,7 @@
     >
       <use :xlink:href="`${remixiconUrl}#ri-${icon}`" />
     </svg>
-    <div class="text-xs">{{ keyboardShortcut }}</div>
+    <div class="hidden md:block text-xs">{{ keyboardShortcut }}</div>
   </button>
 </template>
 

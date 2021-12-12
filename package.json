@@ -47,7 +47,7 @@
     "nuxt": "^2.15.7",
     "remixicon": "^2.5.0",
     "vue-tailwind": "^2.4.2",
-    "vuex-persistedstate": "^4.0.0"
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",

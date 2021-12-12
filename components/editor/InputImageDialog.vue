@@ -37,7 +37,15 @@ export default {
             const tiptap = this.editor
             const test = md5
             return (
-                new Uppy()
+                new Uppy({
+                    id:'article',
+                    allowMultipleUploadBatches: true,
+                    restrictions: {
+                        // maxNumberOfFiles:1,
+                        allowedFileTypes:['image/*']
+                    },
+                    maxNumberOfFiles:1
+                })
                     .use(Webcam)
                     .use(
                         AwsS3,
@@ -45,8 +53,11 @@ export default {
                             metaFields: [],
                             getUploadParameters (file) {
                                 // Send a request to our PHP signing endpoint.
+                                const reader = new FileReader()
+                                reader.readAsArrayBuffer(file.data)
+                                const fileHash = test(reader.result)
                                 return $nuxt.$axios.post('/api3/v1/aws/presignedURL/', {
-                                    key: vm.$auth.user.id + '/' + test(file.source) + '.' + file.extension,
+                                    key: vm.$auth.user.id + '/' + fileHash + '.' + file.extension,
                                     content_type: file.type,
                                 }).then((response) => {
                                 // Parse the JSON response.
@@ -64,16 +75,17 @@ export default {
                                     }
                                 })
                             },
-                            getResponseData(responseText, response){
-                                console.log(responseText)
-                                return {'URL': response.responseURL.split('?')[0] }
-                            }
+                            // getResponseData(responseText, response){
+                            //     console.log(responseText)
+                            //     return {'URL': response.responseURL.split('?')[0] }
+                            // }
                         }
                     )
                     .on(
                         'upload-success', function (file, response) {
                             console.log(file)
-                            tiptap.chain().focus().setImage({ src: response.body.URL ,size:'large'}).run()
+                            tiptap.chain().focus().setImage({ src: response.body.location ,size:'large'}).run()
+                            vm.handleClose()
                         }
                     )
             )

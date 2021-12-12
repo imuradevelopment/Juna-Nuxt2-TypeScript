@@ -4,18 +4,18 @@
       <div v-if="item.type === 'divider'" :key="`divider${index}`" class="block md:inline" />
       <tiptap-menu-item v-else :key="index" v-bind="item" />
     </template>
-    <imput-image-dialog :editor="editor" :modalStatusProps="showModal" @closeModal="changeModalStatus"/>
+    <input-image-dialog :editor="editor" :modalStatusProps="showModal" @closeModal="changeModalStatus"/>
   </div>
 </template>
 
 <script>
 import TiptapMenuItem from './TiptapMenuItem.vue'
-import ImputImageDialog from './ImputImageDialog.vue'
+import InputImageDialog from './InputImageDialog.vue'
 
 export default {
     components: {
         TiptapMenuItem,
-        ImputImageDialog,
+        InputImageDialog,
     },
 
     props: {

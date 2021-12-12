@@ -1,6 +1,6 @@
 import { BulletList } from '@tiptap/extension-bullet-list'
 
-export const CustomBulletList = BulletList
+const CustomBulletList = BulletList
     .extend({
         name: 'CustomBulletList',
         group: 'block list',
@@ -24,3 +24,5 @@ export const CustomBulletList = BulletList
             class: 'pl-8 list-disc',
         },
     })
+
+export default CustomBulletList

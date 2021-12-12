@@ -4,15 +4,18 @@
       <div v-if="item.type === 'divider'" :key="`divider${index}`" class="block md:inline" />
       <tiptap-menu-item v-else :key="index" v-bind="item" />
     </template>
+    <imput-image-dialog :editor="editor" :modalStatusProps="showModal" @closeModal="changeModalStatus"/>
   </div>
 </template>
 
 <script>
 import TiptapMenuItem from './TiptapMenuItem.vue'
+import ImputImageDialog from './ImputImageDialog.vue'
 
 export default {
     components: {
         TiptapMenuItem,
+        ImputImageDialog,
     },
 
     props: {
@@ -24,6 +27,8 @@ export default {
 
     data() {
         return {
+            showModal: false,
+            URL: '',
             items: [
                 {
                     icon: 'h-2',
@@ -82,9 +87,41 @@ export default {
                     keyboardShortcut: 'ctrl + M',
                     action: () => this.editor.chain().focus().toggleCodeBlock().run(),
                     isActive: () => this.editor.isActive('codeBlock'),
+                },
+                {
+                    icon: 'image-line',
+                    title: 'Image',
+                    keyboardShortcut: 'ctrl + I',
+                    action:() => {
+                        // 一応動作
+                        // const url = window.prompt(
+                        //     'Image URL',
+                        //     // Using picsum.photo/id/... and NOT
+                        //     // picsum.photos/w/h or the image will
+                        //     // change when we change the size and
+                        //     // tiptap redraws
+                        //     `https://picsum.photos/id/${
+                        //         Math.floor(Math.random() * 200) + 1
+                        //     }/1920/1080`
+                        // )
+
+                        // if (url) {
+                        //     this.editor.chain().focus().setImage({ src: url ,size:'large'}).run()
+                        // }
+
+                        // お試し
+                        this.changeModalStatus()
+                    },
+                    isActive: () => this.editor.isActive('custom-image'),
                 }
             ],
         }
     },
+    methods:{
+        changeModalStatus(){
+            this.showModal = !this.showModal
+            console.log(this.showModal)
+        }
+    }
 }
 </script>

@@ -10,6 +10,7 @@
 import { defineComponent } from '@vue/composition-api'
 
 export default defineComponent({
-    layout:'ignore'
+    layout:'ignore',
+    // auth: false,
 })
 </script>

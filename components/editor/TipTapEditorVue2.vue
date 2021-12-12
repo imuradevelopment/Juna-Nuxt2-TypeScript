@@ -9,22 +9,18 @@
 <script lang="ts">
 import { defineComponent, reactive } from '@vue/composition-api'
 import { Editor, EditorContent, VueNodeViewRenderer } from '@tiptap/vue-2'
-import { Document } from '@tiptap/extension-document'
 import { Placeholder } from '@tiptap/extension-placeholder'
 import StarterKit from '@tiptap/starter-kit'
-import { Image } from '@tiptap/extension-image'
-import { CustomHighLight } from './menuItem/CustomHighLight'
-import { CustomListItem } from './menuItem/CustomListItem'
-import { CustomBulletList } from './menuItem/CustomBulletList'
-import { CustomHeading } from './menuItem/CustomHeading'
-import { CustomBlockquote } from './menuItem/CustomBlockquote'
-import { CustomCodeBlock } from './menuItem/CustomCodeBlock'
+import CustomDocument from './extensions/CustomDocument'
+import CustomImage from './extensions/CustomImage'
+import CustomHighLight from './extensions/CustomHighLight'
+import CustomListItem from './extensions/CustomListItem'
+import CustomBulletList from './extensions/CustomBulletList'
+import CustomHeading from './extensions/CustomHeading'
+import CustomBlockquote from './extensions/CustomBlockquote'
+import CustomCodeBlock from './extensions/CustomCodeBlock'
 import CodeBlockComponent from './CodeBlockComponent.vue'
 import TiptapMenuBar from './TiptapMenuBar.vue'
-
-const CustomDocument = Document.extend({
-    content: 'heading paragraph block*',
-})
 
 export default defineComponent({
     components: {
@@ -61,7 +57,6 @@ export default defineComponent({
                         },
                     },
                 }),
-                Image,
                 CustomHeading,
                 CustomBulletList,
                 CustomListItem,
@@ -85,9 +80,9 @@ export default defineComponent({
                     emptyNodeClass: 'is-empty',
                     showOnlyCurrent: false
                 }),
+                CustomImage,
             ],
         }))
-
         return{
             editor
         }

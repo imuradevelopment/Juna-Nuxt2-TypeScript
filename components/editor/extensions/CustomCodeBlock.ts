@@ -1,7 +1,7 @@
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
 import lowlight from 'lowlight'
 
-export const CustomCodeBlock = CodeBlockLowlight
+const CustomCodeBlock = CodeBlockLowlight
     .extend({
         // キーボードショートカット
         addKeyboardShortcuts() {
@@ -12,3 +12,5 @@ export const CustomCodeBlock = CodeBlockLowlight
     }).configure({
         lowlight
     })
+
+export default CustomCodeBlock

@@ -7,7 +7,7 @@
       <option disabled>
         —
       </option>
-      <option v-for="(language, index) in languages" :value="language" :key="index">
+      <option v-for="(language, index) in languages" :key="index" :value="language">
         {{ language }}
       </option>
     </select>

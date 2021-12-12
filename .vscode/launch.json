@@ -1,38 +1,42 @@
 {
     "configurations": [
-      {
-        "type": "node",
-        "name": "Launch via npm",
-        "request": "launch",
-        "runtimeExecutable": "npm",
-        "runtimeArgs": [
-          "run",
-          "debug"
-        ],
-        "cwd": "${workspaceFolder}",
-        "port": 9229,
-        "sourceMaps": true
-      },
-      {
-        "type": "firefox",
-        "name": "Launch Firefox",
-        "request": "launch",
-        "reAttach": true,
-        "profile": "default",
-        "keepProfileChanges": true,
-        "url": "http://localhost:3000",
-        "webRoot": "${workspaceFolder}",
-        "pathMappings": [
-          {
-            "url": "webpack:///plugins/axios.js",
-            "path": "${workspaceFolder}/plugins/axios.js"
-          },
-          {
-            "url": "webpack:///./*",
-            "path": "${workspaceFolder}/*"
-          }
-        ]
-      }
+        {
+            "type": "node",
+            "name": "Launch via npm",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": [
+                "run",
+                "debug"
+            ],
+            "cwd": "${workspaceFolder}",
+            "port": 9229,
+            "sourceMaps": true
+        },
+        {
+            "type": "firefox",
+            "name": "Launch Firefox",
+            "request": "launch",
+            "reAttach": true,
+            "profile": "default",
+            "keepProfileChanges": true,
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [
+                {
+                    "url": "webpack:///components",
+                    "path": "${workspaceFolder}/components"
+                },
+                {
+                    "url": "webpack:///plugins/axios.js",
+                    "path": "${workspaceFolder}/plugins/axios.js"
+                },
+                {
+                    "url": "webpack:///./*",
+                    "path": "${workspaceFolder}/*"
+                }
+            ]
+        }
     ],
     "compounds": [
         {

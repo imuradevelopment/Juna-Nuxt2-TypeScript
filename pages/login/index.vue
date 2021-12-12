@@ -1,15 +1,13 @@
 <template>
-    <div>
-        <form @submit.prevent="userLogin">
-            <t-input-group label="ユーザーID" feedback="@から始まる登録時のID">
-            <t-input v-model="loginData.user_id" type="text"/>
-            </t-input-group>
-            <t-input-group label="パスワード" feedback="パスワード">
-            <t-input v-model="loginData.password" type="password"/>
-            </t-input-group>
-            <t-button type="submit">送信</t-button>
-        </form>
-    </div>
+    <form @submit.prevent="userLogin">
+        <t-input-group label="ユーザーID" feedback="@から始まる登録時のID">
+        <t-input v-model="loginData.user_id" type="text"/>
+        </t-input-group>
+        <t-input-group label="パスワード" feedback="パスワード">
+        <t-input v-model="loginData.password" type="password"/>
+        </t-input-group>
+        <t-button type="submit">送信</t-button>
+    </form>
 </template>
 
 <script lang="ts">

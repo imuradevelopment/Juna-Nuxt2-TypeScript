@@ -1,6 +1,6 @@
 import HighLight from '@tiptap/extension-highlight'
 
-export const CustomHighLight = HighLight
+const CustomHighLight = HighLight
     .extend({
         // キーボードショートカット
         addKeyboardShortcuts() {
@@ -14,3 +14,5 @@ export const CustomHighLight = HighLight
             class: 'bg-secondaryColor dark:bg-secondaryDarkColor',
         },
     })
+
+export default CustomHighLight

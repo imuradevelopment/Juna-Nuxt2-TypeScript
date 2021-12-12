@@ -1,6 +1,6 @@
 import { ListItem } from '@tiptap/extension-list-item'
 
-export const CustomListItem = ListItem.extend({
+const CustomListItem = ListItem.extend({
     name: 'CustomlistItem',
     content: 'paragraph block*',
 
@@ -12,3 +12,5 @@ export const CustomListItem = ListItem.extend({
         }
     },
 })
+
+export default CustomListItem

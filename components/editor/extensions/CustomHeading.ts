@@ -9,7 +9,7 @@ const classes: Record<Levels, string> = {
     3: 'text-2xl',
 }
 
-export const CustomHeading = BaseHeading
+const CustomHeading = BaseHeading
     .configure({
         levels: [1, 2, 3]
     })
@@ -34,3 +34,5 @@ export const CustomHeading = BaseHeading
             }
         },
     })
+
+export default CustomHeading

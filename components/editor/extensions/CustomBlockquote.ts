@@ -1,6 +1,6 @@
 import { Blockquote } from '@tiptap/extension-blockquote'
 
-export const CustomBlockquote = Blockquote
+const CustomBlockquote = Blockquote
     .extend({
         // キーボードショートカット
         addKeyboardShortcuts() {
@@ -14,3 +14,5 @@ export const CustomBlockquote = Blockquote
             class: 'ml-4 pl-4 border-l-4 border-sold',
         },
     })
+
+export default CustomBlockquote

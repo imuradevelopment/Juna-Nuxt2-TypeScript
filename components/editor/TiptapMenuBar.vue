@@ -94,23 +94,23 @@ export default {
                     keyboardShortcut: 'ctrl + I',
                     action:() => {
                         // 一応動作
-                        // const url = window.prompt(
-                        //     'Image URL',
-                        //     // Using picsum.photo/id/... and NOT
-                        //     // picsum.photos/w/h or the image will
-                        //     // change when we change the size and
-                        //     // tiptap redraws
-                        //     `https://picsum.photos/id/${
-                        //         Math.floor(Math.random() * 200) + 1
-                        //     }/1920/1080`
-                        // )
+                        const url = window.prompt(
+                            'Image URL',
+                            // Using picsum.photo/id/... and NOT
+                            // picsum.photos/w/h or the image will
+                            // change when we change the size and
+                            // tiptap redraws
+                            `https://picsum.photos/id/${
+                                Math.floor(Math.random() * 200) + 1
+                            }/1920/1080`
+                        )
 
-                        // if (url) {
-                        //     this.editor.chain().focus().setImage({ src: url ,size:'large'}).run()
-                        // }
+                        if (url) {
+                            this.editor.chain().focus().setImage({ src: url ,size:'large'}).run()
+                        }
 
-                        // お試し
-                        this.changeModalStatus()
+                        // wasabiへのアップロード
+                        // this.changeModalStatus()
                     },
                     isActive: () => this.editor.isActive('custom-image'),
                 }

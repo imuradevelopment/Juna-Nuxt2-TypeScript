@@ -1,8 +1,8 @@
 <template>
     <div v-if="editor" class="custom_container">
-        <tiptap-menu-bar class="sticky top-0 z-50 bg-primaryColor dark:bg-primaryColor" :editor="editor" />
+        <tiptap-menu-bar class="hidden md:block sticky top-0 z-50 bg-primaryColor dark:bg-primaryColor" :editor="editor" />
         <editor-content class="editor__content relative" :editor="editor" />
-        <tiptap-menu-bar class="sticky bottom-0 z-50 bg-primaryColor dark:bg-primaryColor" :editor="editor" />
+        <tiptap-menu-bar class="md:hidden sticky bottom-0 z-50 bg-primaryColor dark:bg-primaryColor" :editor="editor" />
     </div>
 </template>
 
